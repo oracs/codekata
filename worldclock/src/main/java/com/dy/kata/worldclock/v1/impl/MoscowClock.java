@@ -8,7 +8,9 @@ public class MoscowClock extends Clock{
     }
 
     @Override
-    public int toUTCTime() {
-        return hour - 4;
+    protected int jetlag() {
+        return 4;
     }
+
+
 }

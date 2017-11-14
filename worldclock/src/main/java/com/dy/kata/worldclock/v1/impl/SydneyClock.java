@@ -8,7 +8,9 @@ public class SydneyClock extends Clock{
     }
 
     @Override
-    public int toUTCTime() {
-        return hour - 10;
+    protected int jetlag() {
+        return 10;
     }
+
+
 }

@@ -8,8 +8,9 @@ public class NewyorkClock extends Clock {
     }
 
     @Override
-    public int toUTCTime() {
-        return hour + 5;
+    protected int jetlag() {
+        return -5;
     }
+
 
 }

@@ -2,34 +2,64 @@ package com.dy.kata.worldclock.v1;
 
 
 import com.dy.kata.worldclock.v1.impl.*;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class WorldClockTest {
+    private LondonClock londonClock;
+    private BeijingClock beijingClock;
+    private MoscowClock moscowClock;
+    private SydneyClock sydneyClock;
+    private NewyorkClock newyorkClock;
+
+    @Before
+    public void setup(){
+        londonClock = new LondonClock(14);
+        beijingClock = new BeijingClock(14);
+        moscowClock = new MoscowClock(14);
+        sydneyClock = new SydneyClock(14);
+        newyorkClock = new NewyorkClock(14);
+    }
+
     @Test
     public void test_London_time_to_UTC_time() throws Exception {
-        assertThat(new LondonClock(14).toUTCTime(), is(14));   // 时间简单表示成xx，重点关注核心业务
+        assertThat(londonClock.toUTCTime(), is(14));   // 时间简单表示成xx，重点关注核心业务
     }
 
     @Test
     public void test_Beijing_time_to_UTC_time() throws Exception {
-        assertThat(new BeijingClock(14).toUTCTime(), is(6));
+        assertThat(beijingClock.toUTCTime(), is(6));
     }
 
     @Test
     public void test_Moscow_time_to_UTC_time() throws Exception {
-        assertThat(new MoscowClock(14).toUTCTime(), is(10));
+        assertThat(moscowClock.toUTCTime(), is(10));
     }
 
     @Test
     public void test_Sydney_time_to_UTC_time() throws Exception {
-        assertThat(new SydneyClock(14).toUTCTime(), is(4));
+        assertThat(sydneyClock.toUTCTime(), is(4));
     }
 
     @Test
     public void test_Newyork_time_to_UTC_time() throws Exception {
-        assertThat(new NewyorkClock(14).toUTCTime(), is(19));
+        assertThat(newyorkClock.toUTCTime(), is(19));
+    }
+
+    @Test
+    public void test_sync_time() {
+        WallClocks wallclocks = new WallClocks(londonClock,
+                beijingClock,
+                moscowClock,
+                sydneyClock,
+                newyorkClock);
+
+        new Waiter().syncTime(wallclocks, new BeijingClock(15));
+
+        assertThat(beijingClock.getSyncedTime(), is(15));
+
     }
 }
