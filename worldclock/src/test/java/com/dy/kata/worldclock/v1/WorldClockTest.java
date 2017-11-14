@@ -60,6 +60,10 @@ public class WorldClockTest {
         new Waiter().syncTime(wallclocks, new BeijingClock(15));
 
         assertThat(beijingClock.getSyncedTime(), is(15));
+        assertThat(londonClock.getSyncedTime(), is(7));
+        assertThat(moscowClock.getSyncedTime(), is(11));
+        assertThat(sydneyClock.getSyncedTime(), is(17));
+        assertThat(newyorkClock.getSyncedTime(), is(2));
 
     }
 }
