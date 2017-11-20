@@ -2,7 +2,7 @@ package com.dy.kata.countoff
 
 import spock.lang.Specification
 
-class CountOffTest2 extends Specification {
+class CountOffTest extends Specification {
 
     def "test_countoff_special_numbers"() {
         given:
