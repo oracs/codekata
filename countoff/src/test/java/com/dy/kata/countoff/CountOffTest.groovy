@@ -13,6 +13,9 @@ class CountOffTest extends Specification {
 
         where:
         number || result
-        3      || "ʯͷ"
+        3      || "石头"
+        5      || "剪刀"
+        7      || "布"
+
     }
 }
