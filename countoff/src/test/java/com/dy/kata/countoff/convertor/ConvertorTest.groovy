@@ -1,15 +1,15 @@
-package com.dy.kata.countoff
+package com.dy.kata.countoff.convertor
 
 import spock.lang.Specification
 
-class CountOffTest extends Specification {
+class ConvertorTest extends Specification {
 
-    def "test_countoff_special_numbers"() {
+    def "test_convert_special_numbers"() {
         given:
-        Kids kids = new Kids()
+        NumConvertor convertor = new NumConvertor(3, 5, 7)
 
         expect:
-        result == kids.countOff(number)
+        result == convertor.convert(number)
 
         where:
         number || result
@@ -32,4 +32,6 @@ class CountOffTest extends Specification {
         35     || "石头"
         105    || "石头剪刀布"
     }
+
+
 }
