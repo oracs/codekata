@@ -36,7 +36,7 @@ class ConvertorTest extends Specification {
 
     def "test_convert_special_numbers_579"() {
         given:
-        NumConvertor convertor = new NumConvertor(5, 7, 9)
+        NumConvertor convertor = new NumConvertor(new Literal1(5, 7, 9))
 
         expect:
         result == convertor.convert(number)
@@ -52,12 +52,12 @@ class ConvertorTest extends Specification {
         7      || "剪刀"
         8      || "8"
         9      || "布"
-        10     || "10"
+        10     || "石头"
         13     || "13"
         14     || "剪刀"
         15     || "石头"
         18     || "布"
-        21     || "21"
+        21     || "剪刀"
         23     || "23"
         33     || "33"
         35     || "石头"
