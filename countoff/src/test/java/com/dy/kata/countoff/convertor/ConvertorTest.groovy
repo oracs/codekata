@@ -1,21 +1,24 @@
 package com.dy.kata.countoff.convertor
 
+import com.dy.kata.countoff.gamerule.GameRule
 import com.dy.kata.countoff.gamerule.GameRuleBuilder
 import spock.lang.Specification
+
+import static com.dy.kata.countoff.gamerule.play.PlayRuleCreator.containsRule
+import static com.dy.kata.countoff.gamerule.play.PlayRuleCreator.multipleRule
 
 class ConvertorTest extends Specification {
 
     def "test_convert_special_numbers_357"() {
         given:
-        NumConvertor convertor = new NumConvertor(
-                                    new GameRuleBuilder()
-                                            .from(3, 5, 7)
-                                            .to("石头", "剪刀", "布")
-                                            .apply(containsRule(), multipleRule())
-                                            .build());
+        GameRule gameRule =  new GameRuleBuilder()
+                                 .from(3, 5, 7)
+                                 .to("石头", "剪刀", "布")
+                                 .apply(containsRule(), multipleRule())
+                                 .build();
 
         expect:
-        result == convertor.convert(number)
+        result == gameRule.convert(number)
 
         where:
         number || result
