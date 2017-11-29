@@ -1,16 +1,18 @@
 package com.dy.kata.countoff.convertor
 
-import com.dy.kata.countoff.gamerule.MappingBuilder
+import com.dy.kata.countoff.gamerule.GameRuleBuilder
 import spock.lang.Specification
 
 class ConvertorTest extends Specification {
 
     def "test_convert_special_numbers_357"() {
         given:
-        NumConvertor convertor = new NumConvertor(new MappingBuilder()
-                                                    .from(3, 5, 7)
-                                                    .to("石头", "剪刀", "布")
-                                                    .build());
+        NumConvertor convertor = new NumConvertor(
+                                    new GameRuleBuilder()
+                                            .from(3, 5, 7)
+                                            .to("石头", "剪刀", "布")
+                                            .apply(containsRule(), multipleRule())
+                                            .build());
 
         expect:
         result == convertor.convert(number)
