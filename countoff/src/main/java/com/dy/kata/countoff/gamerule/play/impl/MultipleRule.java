@@ -1,8 +1,8 @@
 package com.dy.kata.countoff.gamerule.play.impl;
 
+import com.dy.kata.countoff.gamerule.model.LiteralMapping;
+import com.dy.kata.countoff.gamerule.model.SpecialNumbers;
 import com.dy.kata.countoff.gamerule.play.PlayRule;
-import com.dy.kata.countoff.gamerule.vo.LiteralMapping;
-import com.dy.kata.countoff.gamerule.vo.SpecialNumbers;
 
 public class MultipleRule implements PlayRule {
     private String result = "";

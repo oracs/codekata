@@ -26,7 +26,7 @@ public class WorldClockTest {
 
     @Test
     public void test_London_time_to_UTC_time() throws Exception {
-        assertThat(londonClock.toUTCTime(), is(14));   // 时间简单表示成xx，重点关注核心业务
+        assertThat(londonClock.toUTCTime(), is(14));
     }
 
     @Test

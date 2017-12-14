@@ -1,9 +1,9 @@
 package com.dy.kata.countoff.gamerule;
 
+import com.dy.kata.countoff.gamerule.model.Literals;
+import com.dy.kata.countoff.gamerule.model.PlayRules;
+import com.dy.kata.countoff.gamerule.model.SpecialNumbers;
 import com.dy.kata.countoff.gamerule.play.PlayRule;
-import com.dy.kata.countoff.gamerule.vo.Literals;
-import com.dy.kata.countoff.gamerule.vo.PlayRules;
-import com.dy.kata.countoff.gamerule.vo.SpecialNumbers;
 
 public class GameRuleBuilder {
     private SpecialNumbers specialNumbers;
