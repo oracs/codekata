@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 public class Locator {
 
-    public static Student findFirst(List<Student> students, Predicate<Student> matcher) {
-        return students.stream().filter(matcher).findFirst().get();
+    public static Student findFirst(List<Student> students, Predicate<Student> predicate) {
+        return students.stream().filter(predicate).findFirst().get();
     }
 }

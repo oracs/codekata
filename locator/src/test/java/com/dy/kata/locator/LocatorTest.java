@@ -7,6 +7,8 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.dy.kata.locator.model.Matcher.eq;
+import static com.dy.kata.locator.model.StudentPredicate.age;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -26,5 +28,6 @@ public class LocatorTest {
     @Test
     public void test_find_first_student_of_age_equals_12() throws Exception {
         assertThat(Locator.findFirst(students, s -> s.getAge() == 12).getName(), is("no2"));
+        assertThat(Locator.findFirst(students, age(eq(12))).getName(), is("no2"));
     }
 }
