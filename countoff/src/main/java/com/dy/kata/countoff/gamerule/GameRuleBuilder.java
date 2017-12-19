@@ -15,12 +15,12 @@ public class GameRuleBuilder {
         return this;
     }
 
-    public GameRuleBuilder toText(String... texts) {
+    public GameRuleBuilder to(String... texts) {
         literals = new Literals(texts);
         return this;
     }
 
-    public GameRuleBuilder applyRule(PlayRule... playRules) {
+    public GameRuleBuilder apply(PlayRule... playRules) {
         this.playRules = new PlayRules(playRules);
         return this;
     }

@@ -12,8 +12,8 @@ class ConvertorTest extends Specification {
         given:
         GameRule gameRule =  new GameRuleBuilder()
                                  .specailNum(3, 5, 7)
-                                 .toText("石头", "剪刀", "布")
-                                 .applyRule(containsRule(), multipleRule())
+                                 .to("石头", "剪刀", "布")
+                                 .apply(containsRule(), timesRule())
                                  .build();
 
         expect:
@@ -45,8 +45,8 @@ class ConvertorTest extends Specification {
         given:
         GameRule gameRule =  new GameRuleBuilder()
                 .specailNum(5, 7, 9)
-                .toText("石头", "剪刀", "布")
-                .applyRule(containsRule(), multipleRule())
+                .to("石头", "剪刀", "布")
+                .apply(containsRule(), timesRule())
                 .build();
 
         expect:
@@ -81,8 +81,8 @@ class ConvertorTest extends Specification {
         given:
         GameRule gameRule =  new GameRuleBuilder()
                 .specailNum(3, 5, 7)
-                .toText("老虎", "棒子", "鸡")
-                .applyRule(containsRule(), multipleRule())
+                .to("老虎", "棒子", "鸡")
+                .apply(containsRule(), timesRule())
                 .build();
 
         expect:
@@ -114,8 +114,8 @@ class ConvertorTest extends Specification {
         given:
         GameRule gameRule =  new GameRuleBuilder()
                 .specailNum(4, 6)
-                .toText("喜洋洋", "灰太狼")
-                .applyRule(containsRule(), multipleRule())
+                .to("喜洋洋", "灰太狼")
+                .apply(containsRule(), timesRule())
                 .build();
 
         expect:
@@ -146,8 +146,8 @@ class ConvertorTest extends Specification {
         given:
         GameRule gameRule =  new GameRuleBuilder()
                 .specailNum(3, 5, 7)
-                .toText("石头", "剪刀", "布")
-                .applyRule(contains2thSpecialNumRule(), multipleRule())
+                .to("石头", "剪刀", "布")
+                .apply(contains2thSpecialNumRule(), timesRule())
                 .build();
 
         expect:
