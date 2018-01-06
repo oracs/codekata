@@ -1,4 +1,4 @@
-package com.dy.kata.locator.model;
+package com.dy.kata.locator.model.predicate;
 
 public interface Matcher<T> {
     boolean match(T t);
