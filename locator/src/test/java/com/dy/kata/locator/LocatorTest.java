@@ -9,8 +9,8 @@ import java.util.List;
 
 import static com.dy.kata.locator.model.Matcher.eq;
 import static com.dy.kata.locator.model.Matcher.gt;
-import static com.dy.kata.locator.model.StudentPredicate.age;
-import static com.dy.kata.locator.model.StudentPredicate.name;
+import static com.dy.kata.locator.model.PersonPredicate.age;
+import static com.dy.kata.locator.model.PersonPredicate.name;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
