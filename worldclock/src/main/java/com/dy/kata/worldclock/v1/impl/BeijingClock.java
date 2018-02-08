@@ -10,7 +10,7 @@ public class BeijingClock extends Clock {
 
 
     @Override
-    protected int jetlag() {
+    protected int offset() {
         return 8;
     }
 

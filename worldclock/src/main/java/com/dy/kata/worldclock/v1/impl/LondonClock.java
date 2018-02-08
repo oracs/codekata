@@ -8,7 +8,7 @@ public class LondonClock extends Clock {
     }
 
     @Override
-    protected int jetlag() {
+    protected int offset() {
         return 0;
     }
 

@@ -3,24 +3,24 @@ package com.dy.kata.worldclock.v1;
 import com.dy.kata.worldclock.v1.impl.BeijingClock;
 
 public abstract class Clock {
-    protected int currentTime;
+    protected int localTime;
     protected int syncedTime;
 
-    public Clock(int currentTime) {
-        this.currentTime = currentTime;
+    public Clock(int localTime) {
+        this.localTime = localTime;
     }
 
     public int toUTCTime() {
-        return currentTime - jetlag();
+        return localTime - offset();
     }
 
     public void syncTime(BeijingClock beijingClock) {
-        syncedTime = beijingClock.toUTCTime() + jetlag();
+        syncedTime = beijingClock.toUTCTime() + offset();
     }
 
     public int getSyncedTime() {
         return syncedTime;
     }
 
-    protected abstract int jetlag();
+    protected abstract int offset();
 }
