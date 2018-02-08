@@ -1,6 +1,6 @@
 package com.dy.kata.worldclock.v2;
 
-import com.dy.kata.worldclock.v2.clocks.BaseClock;
+import com.dy.kata.worldclock.v2.clocks.Clock;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,14 +8,16 @@ import java.util.List;
 
 public class ClockSourcer {
     private int adjustTime;
-    private List<BaseClock> syncClocks = new ArrayList<>();
+    private List<Clock> syncClocks = new ArrayList<>();
 
-    public void addSyncClocks(BaseClock... baseClock) {
-        syncClocks.addAll(Arrays.asList(baseClock));
+    public void addSyncClocks(Clock... clock) {
+        syncClocks.addAll(Arrays.asList(clock));
     }
 
     public void notifyAllClocks() {
-        
+        for (Clock clock : syncClocks) {
+            clock.syncTime(this.adjustTime);
+        }
     }
 
     public void setTime(int time) {

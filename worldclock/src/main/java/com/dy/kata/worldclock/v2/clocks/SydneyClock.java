@@ -1,11 +1,11 @@
 package com.dy.kata.worldclock.v2.clocks;
 
-public class BeijingClock extends Clock {
-    public BeijingClock() {
+public class SydneyClock extends Clock {
+    public SydneyClock() {
     }
 
     @Override
     protected int offset() {
-        return 8;
+        return 10;
     }
 }
