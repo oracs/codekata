@@ -1,0 +1,56 @@
+题目
+Problem Description
+Your job is to compare several pairs of poker hands and to indicate which, if either, has a higher rank.
+我们的任务就是编写程序来比较选手们的牌的大小。
+Poker rules description
+A poker deck contains 52 cards - each card has a suit which is one of clubs, diamonds, hearts, or spades (denoted C, D, H, and S in the input data). Each card also has a value which is one of 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king, ace (denoted 2, 3, 4, 5, 6, 7, 8, 9, T, J, Q, K, A). For scoring purposes, the suits are unordered while the values are ordered as given above, with 2 being the lowest and ace the highest value.
+一副扑克有52张牌—每张牌由一个数字和一个花色（梅花club，方片diamond，红桃heart，黑桃spade）构成，数字包括(按大小排列 2, 3, 4, 5, 6, 7, 8, 9, T, J, Q, K, A)，即2是最小的，A是最大的。
+A poker hand consists of 5 cards dealt from the deck. Poker hands are ranked by the following partial order from lowest to highest.
+一手牌由5张牌组成，牌型大小依序为：皇家同花顺 > 同花顺 > 四条 > 葫芦 > 同花 > 顺子 > 三条 > 两对 > 一对 > 高牌。
+
+·High Card: Hands which do not fit any higher category are ranked by the value of their highest card. If the highest cards have the same value, the hands are ranked by the next highest, and so on.
+高牌：不满足下面条件的“杂牌”。先比较最大的那张杂牌，如果相同则比较次大的那张，以此类推。
+
+·Pair: 2 of the 5 cards in the hand have the same value. Hands which both contain a pair are ranked by the value of the cards forming the pair. If these values are the same, the hands are ranked by the values of the cards not forming the pair, in decreasing order.
+一对：5张牌中包含一对（数字相同）的牌。首先比较对牌的数字大小，如果相同则比较剩下的较大的那张，以此类推。
+
+·Two Pairs: The hand contains 2 different pairs. Hands which both contain 2 pairs are ranked by the value of their highest pair. Hands with the same highest pair are ranked by the value of their other pair. If these values are the same the hands are ranked by the value of the remaining card.
+两对：两对数字相同但两两不同的扑克和随意的一张牌组成。如果不止一人抓到此牌型，持有数字比较大的对子者为赢家，若较大数字对子相同，则比较小对子的数字，如果两对对子数字都相同，那么第五张牌（kicker）数字较大者赢。如果连第五张牌数字也相同，则平分。
+
+·Three of a Kind: Three of the cards in the hand have the same value. Hands which both contain three of a kind are ranked by the value of the 3 cards.
+三条：由三张相同点数和两张不同点数的扑克牌组成，如果不止一人有此牌组，则三张牌中点数者最大赢得该局。
+
+·Straight: Hand contains 5 cards with consecutive values. Hands which both contain a straight are ranked by their highest card.
+顺子：连续的数字组成的牌。最大数字大者为赢。
+
+·Flush: Hand contains 5 cards of the same suit. Hands which are both flushes are ranked using the rules for High Card.
+同花：5张牌具有相同的花色（比如都是红桃），比较规则和高牌相同。
+
+·Full House: 3 cards of the same value, with the remaining 2 cards forming a pair. Ranked by the value of the 3 cards.
+葫芦/三带二：顾名思义，三条的基础上，剩下的两张成对，比较规则和三条相同。
+
+·Four of a kind: 4 cards with the same value. Ranked by the value of the 4 cards.
+四条：有四张点数相同的牌，相同的牌数字大者胜。
+
+·Straight flush: 5 cards of the same suit with consecutive values. Ranked by the highest card in the hand.
+同花顺：顺子的基础上，所有牌都是同花，比较规则同顺子。
+
+·Royal Straight flush: biggest Straight flush.
+皇家同花顺：由10,J,Q,K,A组成的同花顺(最大的同花顺)。
+
+
+Suggested Test Cases
+Sample input:
+2H：红桃2
+3D：方块3
+Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH
+Black: 2H 4S 4C 2D 4H  White: 2S 8S AS QS 3S
+Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C KH
+Black: 2H 3D 5S 9C KD  White: 2D 3H 5C 9S KH
+
+Each row of input is a game with two players. The first five cards belong to the player named "Black" and the second five cards belong to the player named "White".
+Sample output:
+White wins. - with high card (白方最大的是A，黑方是K，白胜)
+White wins. - with flash  (白方是同花，胜)
+Black wins. - with high card (黑方次大的是9，白方是8，黑胜)
+Tie. (所有数字都相同，平局)
