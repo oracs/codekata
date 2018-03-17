@@ -14,7 +14,12 @@ class StringCompareTest extends Specification{
 
         where:
         str1     | str2    || result
-        "B2C"    | "B2"    || -1
-//        "B2"     | "B2"    || 0
+        "B2"     | "C2"    || -1
+        "B3"     | "B2"    || 1
+        "B2"     | "B2"    || 0
+        "B002"   | "B2"    || 1
+
+//        "B2C"    | "B2"    || 1
+
     }
 }

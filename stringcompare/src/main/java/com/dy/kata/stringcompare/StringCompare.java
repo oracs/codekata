@@ -1,7 +1,7 @@
 package com.dy.kata.stringcompare;
 
 import com.dy.kata.stringcompare.analyze.StringAnalyzer;
-import com.dy.kata.stringcompare.analyze.compare.FastStrCompare;
+import com.dy.kata.stringcompare.analyze.compare.FastStrComparator;
 import com.dy.kata.stringcompare.analyze.compare.StringComparater;
 import com.dy.kata.stringcompare.analyze.merge.MergeImpl;
 import com.dy.kata.stringcompare.analyze.merge.Merger;
@@ -28,7 +28,7 @@ public class StringCompare {
                 .split(splitor)
                 .merge(merger);
 
-        return new StringComparater(splitedStr1, splitedStr2).compare(new FastStrCompare());
+        return new StringComparater(splitedStr1, splitedStr2).compare(new FastStrComparator());
     }
 
 }
