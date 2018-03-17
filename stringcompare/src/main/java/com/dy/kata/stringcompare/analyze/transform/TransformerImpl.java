@@ -10,7 +10,7 @@ public class TransformerImpl implements Transformer {
 
         for (int i = 0; i < charArray.length; i++) {
             if (charArray[i] == '/') {
-                if (Character.isDigit(charArray[i + 1])) {  // after slash char is numeric
+                if (Character.isDigit(charArray[i + 1])) {  // after slash char is digit
                     int nextNumericCounts = calcNumericCounts(input, i + 1);
                     result.append("#").append(input.substring(i + 1, i + 2 + nextNumericCounts)).append("#");
                     i = i + nextNumericCounts + 1;

@@ -1,5 +1,5 @@
 package com.dy.kata.stringcompare.model;
 
 public enum ResultType {
-    letter, numeric
+    letter, digit
 }
