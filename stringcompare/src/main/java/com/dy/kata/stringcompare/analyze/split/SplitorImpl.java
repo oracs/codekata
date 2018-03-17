@@ -38,7 +38,7 @@ public class SplitorImpl implements Splitor {
                 }
             }
 
-            // transformed letter
+            // transformed letter, \345
             if (charArray[i] == '#') {
                 for (int x = i + 1; x < charArray.length; x++) {
                     sb.append(charArray[x]);
@@ -52,7 +52,7 @@ public class SplitorImpl implements Splitor {
                 }
             }
 
-            // transformed digit
+            // transformed digit,  \A
             if (charArray[i] == '@') {
                 for (int x = i + 1; x < charArray.length; x++) {
                     sb.append(charArray[x]);
