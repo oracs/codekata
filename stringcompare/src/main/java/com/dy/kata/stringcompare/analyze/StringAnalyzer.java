@@ -1,8 +1,8 @@
-package com.dy.kata.stringcompare;
+package com.dy.kata.stringcompare.analyze;
 
-import com.dy.kata.stringcompare.analyze.SplitResult;
 import com.dy.kata.stringcompare.analyze.split.Splitor;
 import com.dy.kata.stringcompare.analyze.transform.Transformer;
+import com.dy.kata.stringcompare.model.SplitResult;
 
 public class StringAnalyzer {
     private String outputStr;

@@ -1,6 +1,5 @@
 package com.dy.kata.stringcompare.analyze.transform;
 
-import static org.apache.commons.lang3.StringUtils.isNumeric;
 
 public class TransformerImpl implements Transformer {
     @Override
@@ -11,7 +10,7 @@ public class TransformerImpl implements Transformer {
 
         for (int i = 0; i < charArray.length; i++) {
             if (charArray[i] == '/') {
-                if (isNumeric(String.valueOf(charArray[i + 1]))) {  // after slash char is numeric
+                if (Character.isDigit(charArray[i + 1])) {  // after slash char is numeric
                     int nextNumericCounts = calcNumericCounts(input, i + 1);
                     result.append("#").append(input.substring(i + 1, i + 2 + nextNumericCounts)).append("#");
                     i = i + nextNumericCounts + 1;
@@ -31,7 +30,7 @@ public class TransformerImpl implements Transformer {
         int result = 0;
 
         for (int i = 1; i < 3; i++) {
-            if ((position + i) < input.length() && isNumeric(String.valueOf(input.charAt(position + i))) ) {
+            if ((position + i) < input.length() && Character.isDigit(input.charAt(position + i)) ) {
                 result = i;
             }
         }

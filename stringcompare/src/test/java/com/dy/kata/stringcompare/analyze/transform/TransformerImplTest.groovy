@@ -19,6 +19,7 @@ class TransformerImplTest extends Specification {
         "abc/123"              ||  "abc#123#"
         "abc/1234"             ||  "abc#123#4"
         "0/1234"               ||  "0#123#4"
+        "/1a"                  ||  "#1#a"
         "abc/12cdefg"          ||  "abc#12#cdefg"
         "0/123abc/4"           ||  "0#123#abc#4#"
         "0/123/4321"           ||  "0#123##432#1"
