@@ -22,7 +22,7 @@ public class SplitorImpl implements Splitor {
                 if ((i + 1) < input.length() && !Character.isLetter(charArray[i + 1])
                         || (i + 1) == input.length()) {  // 下一位还是字符或者已在尾部
                     result.add(new SplitUnit(letter, sb.toString(), sb.length()));
-                    System.out.println("letter: " + sb);
+//                    System.out.println("letter: " + sb);
                     sb.setLength(0);
                 }
             }
@@ -33,7 +33,7 @@ public class SplitorImpl implements Splitor {
                 if ((i + 1) < input.length() && !Character.isDigit(charArray[i + 1])
                         || (i + 1) == input.length()) {
                     result.add(new SplitUnit(digit, sb.toString(), sb.length()));
-                    System.out.println("digit: " + sb);
+//                    System.out.println("digit: " + sb);
                     sb.setLength(0);
                 }
             }
@@ -45,7 +45,7 @@ public class SplitorImpl implements Splitor {
                     if (charArray[x] == '#') {
                         result.add(new SplitUnit(letter, sb.deleteCharAt(sb.length() - 1).toString(), sb.length()));
                         i = i + sb.length() + 1;
-                        System.out.println("transformed letter: " + sb);
+//                        System.out.println("transformed letter: " + sb);
                         sb.setLength(0);
                         break;
                     }
@@ -59,7 +59,7 @@ public class SplitorImpl implements Splitor {
                     if (charArray[x] == '@') {
                         result.add(new SplitUnit(digit, sb.deleteCharAt(sb.length() - 1).toString(), 1));
                         i = i + sb.length() + 1;
-                        System.out.println("transformed digit: " + sb);
+//                        System.out.println("transformed digit: " + sb);
                         sb.setLength(0);
                         break;
                     }
