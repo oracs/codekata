@@ -15,6 +15,9 @@ public class Transformer implements Convertor {
                     int nextNumericCounts = calcNumericCounts(input, i + 1);
                     result.append("#").append(input.substring(i + 1, i + 2 + nextNumericCounts)).append("#");
                     i = i + nextNumericCounts + 1;
+                } else {
+                    result.append("@").append((int) charArray[i + 1]).append("@");
+                    i = i + 1;
                 }
             } else {
                 result.append(charArray[i]);
@@ -25,11 +28,10 @@ public class Transformer implements Convertor {
     }
 
     private int calcNumericCounts(String input, int position) {
-        int length = input.length();
         int result = 0;
 
         for (int i = 1; i < 3; i++) {
-            if ((position + i) < length && isNumeric(String.valueOf(input.charAt(position + i))) ) {
+            if ((position + i) < input.length() && isNumeric(String.valueOf(input.charAt(position + i))) ) {
                 result = i;
             }
         }
