@@ -1,8 +1,8 @@
-package com.dy.kata.stringcompare.analyze.convertor;
+package com.dy.kata.stringcompare.analyze.transform;
 
 import static org.apache.commons.lang3.StringUtils.isNumeric;
 
-public class Transformer implements Convertor {
+public class TransformerImpl implements Transformer {
     @Override
     public String convert(String input) {
         StringBuilder result = new StringBuilder();
