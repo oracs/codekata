@@ -25,7 +25,7 @@ public class MergeImplTest {
     }
 
     @Test
-    public void test_letter_differ() throws Exception {
+    public void test_differ_merge() throws Exception {
         SplitResult original = new SplitResult() ;
 
         original.add(new SplitUnit(digit, "234", 3));
@@ -50,7 +50,25 @@ public class MergeImplTest {
                 asList(7, 3));
     }
 
+    @Test
+    public void test_compex_merge() throws Exception {
+        SplitResult original = new SplitResult() ;
 
+        original.add(new SplitUnit(letter, "abc", 3));
+        original.add(new SplitUnit(letter, "12", 2));
+        original.add(new SplitUnit(letter, "cd", 2));
+        original.add(new SplitUnit(letter, "345", 3));
+        original.add(new SplitUnit(digit, "6", 1));
+        original.add(new SplitUnit(letter, "eA", 2));
+        original.add(new SplitUnit(digit, "66", 1));
+        original.add(new SplitUnit(digit, "65", 1));
+        original.add(new SplitUnit(digit, "1", 1));
+
+        assertMergeResultPro(original, 4,
+                asList(letter, digit, letter, digit),
+                asList("abc12cd345", "6", "eA", "66651"),
+                asList(10, 1, 2, 3));
+    }
 
     public void assertMergeResult(SplitResult original, int expectSize, List<ResultType> resultTypes, List<String> contents) {
         SplitResult mergedResult = new MergeImpl().merge(original);

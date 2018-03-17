@@ -31,13 +31,15 @@ public class MergeImpl implements Merger {
                         mergedLength));
 
                 System.out.println("else new: " + mergedContent);
-
-                mergedContent = originalUnits.get(i).content();
-                mergedLength = originalUnits.get(i).length();
                 flag = false;
             } else {
                 mergedResult.add(originalUnits.get(i));
                 System.out.println("differ: " + originalUnits.get(i).content());
+            }
+
+            if ((i + 1) < size) {
+                mergedContent = originalUnits.get(i + 1).content();
+                mergedLength = originalUnits.get(i + 1).length();
             }
         }
 
