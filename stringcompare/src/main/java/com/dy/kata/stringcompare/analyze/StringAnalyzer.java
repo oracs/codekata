@@ -1,11 +1,13 @@
 package com.dy.kata.stringcompare.analyze;
 
+import com.dy.kata.stringcompare.analyze.merge.Merger;
 import com.dy.kata.stringcompare.analyze.split.Splitor;
 import com.dy.kata.stringcompare.analyze.transform.Transformer;
 import com.dy.kata.stringcompare.model.SplitResult;
 
 public class StringAnalyzer {
     private String outputStr;
+    private SplitResult splitResult;
 
     public StringAnalyzer(String inputStr) {
         this.outputStr = inputStr;
@@ -16,9 +18,12 @@ public class StringAnalyzer {
         return this;
     }
 
-    public SplitResult split(Splitor splitor) {
-        return splitor.split(outputStr);
+    public StringAnalyzer split(Splitor splitor) {
+        splitResult = splitor.split(outputStr);
+        return this;
     }
 
-
+    public SplitResult merge(Merger merger) {
+        return merger.merge(splitResult);
+    }
 }
