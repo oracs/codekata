@@ -46,7 +46,7 @@ public class MergeImplTest {
 
         assertMergeResultPro(original, 2,
                 asList(digit, letter),
-                asList("12365456", "XYZ"),
+                asList("13406", "XYZ"),
                 asList(7, 3));
     }
 
@@ -66,7 +66,7 @@ public class MergeImplTest {
 
         assertMergeResultPro(original, 4,
                 asList(letter, digit, letter, digit),
-                asList("abc12cd345", "6", "eA", "66651"),
+                asList("abc12cd345", "6", "eA", "7251"),
                 asList(10, 1, 2, 3));
     }
 
