@@ -2,7 +2,6 @@ package com.dy.kata.stringcompare
 
 import spock.lang.Specification
 
-
 class StringCompareTest extends Specification{
 
     def "test string compare"() {

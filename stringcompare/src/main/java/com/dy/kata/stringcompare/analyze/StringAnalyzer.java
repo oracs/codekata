@@ -6,24 +6,14 @@ import com.dy.kata.stringcompare.analyze.transform.Transformer;
 import com.dy.kata.stringcompare.model.SplitResult;
 
 public class StringAnalyzer {
-    private String outputStr;
-    private SplitResult splitResult;
+    private String inputStr;
 
     public StringAnalyzer(String inputStr) {
-        this.outputStr = inputStr;
+        this.inputStr = inputStr;
     }
 
-    public StringAnalyzer transform(Transformer transformer) {
-        outputStr = transformer.convert(outputStr);
-        return this;
+    public SplitResult analysis(Transformer transformer, Splitor splitor, Merger merger) {
+        return merger.merge(splitor.split(transformer.convert(inputStr)));
     }
 
-    public StringAnalyzer split(Splitor splitor) {
-        splitResult = splitor.split(outputStr);
-        return this;
-    }
-
-    public SplitResult merge(Merger merger) {
-        return merger.merge(splitResult);
-    }
 }
