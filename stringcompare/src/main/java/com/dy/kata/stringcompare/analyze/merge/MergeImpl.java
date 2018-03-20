@@ -41,7 +41,7 @@ public class MergeImpl implements Merger {
                         newContents,
                         mergedLength));
 
-                System.out.println("else new " + originalUnits.get(i).type() + ": " + mergedContent);
+                System.out.println("else new " + originalUnits.get(i).type() + ": " + newContents);
                 flag = false;
             } else {
                 mergedResult.add(originalUnits.get(i));
@@ -65,13 +65,25 @@ public class MergeImpl implements Merger {
         return mergedResult;
     }
 
+    //  123,65 -> 123*10 + 65
     private String makeNewDigits(String mergedContent) {
-        // todo yyy
-//        123,65
         String[] splitstr = mergedContent.split(",");
-        for (int i = 0; )
+        int sum = 0;
+        for (int i = 0; i < splitstr.length; i++) {
+            sum += calcMultiplier(splitstr[i], (splitstr.length - i - 1));
+        }
 
+        return String.valueOf(sum);
+    }
 
-        return null;
+    private int calcMultiplier(String value, int n) {
+        int result = Integer.valueOf(value);
+        if (n == 0) return result;
+
+        for (int i = 0; i < n; i++) {
+            result = result * 10;
+        }
+
+        return result;
     }
 }

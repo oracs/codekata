@@ -75,7 +75,7 @@ public class MergeImplTest {
         SplitResult original = new SplitResult() ;
 
         original.add(new SplitUnit(digit, "123", 3));
-        original.add(new SplitUnit(digit, "A", 1));
+        original.add(new SplitUnit(digit, "65", 1));
         original.add(new SplitUnit(letter, "888", 3));
 
         assertMergeResultPro(original, 2,
