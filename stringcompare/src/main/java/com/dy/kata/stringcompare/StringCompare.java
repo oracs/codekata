@@ -28,6 +28,16 @@ public class StringCompare {
                 .split(splitor)
                 .merge(merger);
 
+
+//        for (SplitUnit su: splitedStr1.getSplitUnits()) {
+//            System.out.println(su);
+//        }
+//
+//        System.out.println("--------------");
+//        for (SplitUnit su: splitedStr2.getSplitUnits()) {
+//            System.out.println(su);
+//        }
+
         return new StringComparater(splitedStr1, splitedStr2).compare(new FastStrComparator());
     }
 

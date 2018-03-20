@@ -70,6 +70,7 @@ public class MergeImplTest {
                 asList(10, 1, 2, 3));
     }
 
+//    "123@65@#888#@66@456"
     @Test
     public void test_complex_merge_case1() throws Exception {
         SplitResult original = new SplitResult() ;
@@ -77,11 +78,29 @@ public class MergeImplTest {
         original.add(new SplitUnit(digit, "123", 3));
         original.add(new SplitUnit(digit, "65", 1));
         original.add(new SplitUnit(letter, "888", 3));
+        original.add(new SplitUnit(digit, "66", 1));
+        original.add(new SplitUnit(digit, "456", 3));
 
-        assertMergeResultPro(original, 2,
-                asList(digit, letter),
-                asList("1295", "888"),
-                asList(4, 3));
+        assertMergeResultPro(original, 3,
+                asList(digit, letter, digit),
+                asList("1295", "888", "1116"),
+                asList(4, 3, 4));
+    }
+
+    //  "1295#888#@66@456"
+    @Test
+    public void test_complex_merge_case2() throws Exception {
+        SplitResult original = new SplitResult() ;
+
+        original.add(new SplitUnit(digit, "1295", 4));
+        original.add(new SplitUnit(letter, "888", 3));
+        original.add(new SplitUnit(digit, "66", 1));
+        original.add(new SplitUnit(digit, "456", 3));
+
+        assertMergeResultPro(original, 3,
+                asList(digit, letter, digit),
+                asList("1295", "888", "1116"),
+                asList(4, 3, 4));
     }
 
     public void assertMergeResult(SplitResult original, int expectSize, List<ResultType> resultTypes, List<String> contents) {

@@ -14,7 +14,7 @@ public class StringAnalyzer {
     }
 
     public StringAnalyzer transform(Transformer transformer) {
-        outputStr += transformer.convert(outputStr);
+        outputStr = transformer.convert(outputStr);
         return this;
     }
 

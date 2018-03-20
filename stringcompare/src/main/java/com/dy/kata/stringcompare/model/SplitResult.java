@@ -17,4 +17,6 @@ public class SplitResult {
     public void add(SplitUnit splitUnit) {
         SplitUnits.add(splitUnit);
     }
+
+
 }

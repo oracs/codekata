@@ -63,6 +63,15 @@ public class SplitorImplTest {
                 asList(4, 3, 1, 3));
     }
 
+    @Test
+    public void test_complex_case4() throws Exception {
+        assertSplitPro("1295#888#@66@456" , 4,
+                asList(digit, letter, digit, digit),
+                asList("1295", "888", "66", "456"),
+                asList(4, 3, 1, 3));
+    }
+
+
     public void assertSplit(String input, int expectSize, List<ResultType> resultTypes, List<String> contents) {
         SplitResult splitResult = new SplitorImpl().split(input);
         assertSplitResult(splitResult, expectSize, resultTypes, contents);

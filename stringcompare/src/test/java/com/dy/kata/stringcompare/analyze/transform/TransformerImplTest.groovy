@@ -32,5 +32,7 @@ class TransformerImplTest extends Specification {
         "A/B/A1"               ||  "A@66@@65@1"
         // complex
         "abc/12cd/3456eA/B/A1" ||  "abc#12#cd#345#6eA@66@@65@1"
+        "123/A/888/B456" || "123@65@#888#@66@456"
+        "1295/888/B456"  || "1295#888#@66@456"
     }
 }

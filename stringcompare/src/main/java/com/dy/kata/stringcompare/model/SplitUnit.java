@@ -27,4 +27,13 @@ public class SplitUnit {
     public int length() {
         return length;
     }
+
+    @Override
+    public String toString() {
+        return "SplitUnit{" +
+                "type=" + type +
+                ", content='" + content + '\'' +
+                ", length=" + length +
+                '}';
+    }
 }
