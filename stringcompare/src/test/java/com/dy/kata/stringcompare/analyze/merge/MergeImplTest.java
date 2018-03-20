@@ -70,6 +70,20 @@ public class MergeImplTest {
                 asList(10, 1, 2, 3));
     }
 
+    @Test
+    public void test_complex_merge_case1() throws Exception {
+        SplitResult original = new SplitResult() ;
+
+        original.add(new SplitUnit(digit, "123", 3));
+        original.add(new SplitUnit(digit, "A", 1));
+        original.add(new SplitUnit(letter, "888", 3));
+
+        assertMergeResultPro(original, 2,
+                asList(digit, letter),
+                asList("1295", "888"),
+                asList(4, 3));
+    }
+
     public void assertMergeResult(SplitResult original, int expectSize, List<ResultType> resultTypes, List<String> contents) {
         SplitResult mergedResult = new MergeImpl().merge(original);
         TestHelper.assertSplitResult(mergedResult, expectSize, resultTypes, contents);

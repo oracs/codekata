@@ -48,18 +48,18 @@ public class SplitorImplTest {
 //    "123/A/888/B456"
     @Test
     public void test_complex_case2() throws Exception {
-        assertSplitPro("123@A@#888#@B@456" , 5,
+        assertSplitPro("123@65@#888#@66@456" , 5,
                 asList(digit, digit, letter, digit, digit),
-                asList("123", "A", "888", "B", "456"),
+                asList("123", "65", "888", "66", "456"),
                 asList(3, 1, 3, 1, 3));
     }
 
     //  "1295/888/B456"
     @Test
     public void test_complex_case3() throws Exception {
-        assertSplitPro("1295#888#@B@456" , 4,
+        assertSplitPro("1295#888#@66@456" , 4,
                 asList(digit, letter, digit, digit),
-                asList("1295", "888", "B", "456"),
+                asList("1295", "888", "66", "456"),
                 asList(4, 3, 1, 3));
     }
 

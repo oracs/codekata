@@ -5,6 +5,8 @@ import com.dy.kata.stringcompare.model.SplitUnit;
 
 import java.util.List;
 
+import static com.dy.kata.stringcompare.model.ResultType.letter;
+
 public class MergeImpl implements Merger {
     @Override
     public SplitResult merge(SplitResult input) {
@@ -19,15 +21,24 @@ public class MergeImpl implements Merger {
         // todo maybe perfermance issure.
         for (int i = 0; i < size; i++) {
             if (((i + 1) < size) && originalUnits.get(i).type() == originalUnits.get(i + 1).type()) {
-                mergedContent += originalUnits.get(i + 1).content();
+                if (originalUnits.get(i).type() == letter) {
+                    mergedContent += originalUnits.get(i + 1).content();
+                } else {
+                    // todo xxx
+                    mergedContent += ","+originalUnits.get(i + 1).content();
+                }
                 mergedLength += originalUnits.get(i + 1).length();
                 flag = true;
                 continue;
             }
             if (flag) {
+                String newContents = (originalUnits.get(i).type() == letter)
+                        ? mergedContent
+                        : makeNewDigits(mergedContent);
+
                 mergedResult.add(new SplitUnit(
                         originalUnits.get(i).type(),
-                        mergedContent,
+                        newContents,
                         mergedLength));
 
                 System.out.println("else new " + originalUnits.get(i).type() + ": " + mergedContent);
@@ -52,5 +63,15 @@ public class MergeImpl implements Merger {
         }
 
         return mergedResult;
+    }
+
+    private String makeNewDigits(String mergedContent) {
+        // todo yyy
+//        123,65
+        String[] splitstr = mergedContent.split(",");
+        for (int i = 0; )
+
+
+        return null;
     }
 }
