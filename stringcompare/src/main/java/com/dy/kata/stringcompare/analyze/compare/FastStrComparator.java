@@ -52,7 +52,12 @@ public class FastStrComparator implements StrComparator {
     }
 
     private int letterCompare(SplitUnit u1, SplitUnit u2) {
-        return u1.content().compareTo(u2.content());
+        int result = u1.content().compareTo(u2.content());
+
+        if (result < 0 ) return -1;
+        if (result > 0 ) return 1;
+
+        return result;
     }
 
     private int digitCompare(SplitUnit u1, SplitUnit u2) {

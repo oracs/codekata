@@ -16,10 +16,9 @@ public class FastStrComparatorTest {
         r1.add(new SplitUnit(letter, "b", 1));
         r1.add(new SplitUnit(digit, "2", 1));
 
-
         SplitResult r2 = new SplitResult() ;
-        r1.add(new SplitUnit(letter, "c", 1));
-        r1.add(new SplitUnit(digit, "2", 1));
+        r2.add(new SplitUnit(letter, "c", 1));
+        r2.add(new SplitUnit(digit, "2", 1));
 
         FastStrComparator comparator = new FastStrComparator();
         assertThat(comparator.compare(r1, r2), is(-1));

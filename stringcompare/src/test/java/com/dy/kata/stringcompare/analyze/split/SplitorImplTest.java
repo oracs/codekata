@@ -71,7 +71,6 @@ public class SplitorImplTest {
                 asList(4, 3, 1, 3));
     }
 
-
     public void assertSplit(String input, int expectSize, List<ResultType> resultTypes, List<String> contents) {
         SplitResult splitResult = new SplitorImpl().split(input);
         assertSplitResult(splitResult, expectSize, resultTypes, contents);

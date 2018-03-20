@@ -41,11 +41,11 @@ public class MergeImpl implements Merger {
                         newContents,
                         mergedLength));
 
-//                System.out.println("else new " + originalUnits.get(i).type() + ": " + newContents);
+                System.out.println("else new " + originalUnits.get(i).type() + ": " + newContents);
                 flag = false;
             } else {
                 mergedResult.add(originalUnits.get(i));
-//                System.out.println("differ: " + originalUnits.get(i).content());
+                System.out.println("differ: " + originalUnits.get(i).content());
             }
 
             if ((i + 1) < size) {
@@ -59,7 +59,7 @@ public class MergeImpl implements Merger {
                     originalUnits.get(size - 1).type(),
                     mergedContent,
                     mergedLength));
-//            System.out.println("last same:" + mergedContent);
+            System.out.println("last same:" + mergedContent);
         }
 
         return mergedResult;
