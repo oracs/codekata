@@ -1,5 +1,7 @@
 package com.dy.kata.stringcompare.analyze.split;
 
+import com.dy.kata.stringcompare.analyze.split.action.SplitAction;
+import com.dy.kata.stringcompare.analyze.split.condition.Condition;
 import com.dy.kata.stringcompare.model.SplitResult;
 import com.dy.kata.stringcompare.model.SplitUnit;
 
@@ -16,6 +18,8 @@ public class SplitorImpl implements Splitor {
         StringBuffer sb = new StringBuffer();
 
         for (int i = 0; i < charArray.length; i++) {
+//            splitWhen(x('a'), thanAdd(input, pos, sb))
+
             // letter
             if (Character.isLetter(charArray[i])) {
                 sb.append(charArray[i]);
@@ -68,6 +72,13 @@ public class SplitorImpl implements Splitor {
         }
 
         return result;
+    }
+
+    private SplitUnit splitWhen(char[] charArray, int pos, StringBuffer sb, Condition condition, SplitAction action) {
+        if (condition.matches(charArray[pos])) {
+            return action.split(charArray, pos, sb);
+        }
+        return null;
     }
 
 }
